@@ -1,125 +1,116 @@
-# Spreadsheet Web Application
+# **CDP Support Chatbot**
 
-## **Overview**
-This project involves creating a dynamic web application that replicates key functionalities of a spreadsheet application, offering a robust platform for data manipulation and visualization. It includes essential features like cell-based data entry, formula processing, formatting options, and row/column management, all wrapped in an intuitive and interactive interface.
-
----
-
-## **Features**
-
-### **1. Interactive Spreadsheet Interface**
-- **User-Friendly Design**: A grid-based layout with a toolbar and formula bar for ease of use.
-- **Drag-and-Drop**: Move content and formulas seamlessly between cells.
-- **Cell Dependencies**: Automatic updates for dependent cells.
-- **Basic Styling**: Options for bold, italics, font adjustments, and color changes.
-- **Row and Column Management**: Add, remove, and resize dynamically.
-
-### **2. Built-in Mathematical Functions**
-- Perform common calculations such as:
-  - `SUM`: Adds values in a range.
-  - `AVERAGE`: Calculates the average.
-  - `MAX`/`MIN`: Finds maximum or minimum values.
-  - `COUNT`: Counts numerical entries.
-
-### **3. Data Cleanup and Transformation**
-- Functions to improve data quality:
-  - `TRIM`: Removes unwanted spaces.
-  - `UPPER`/`LOWER`: Adjusts text case.
-  - `REMOVE_DUPLICATES`: Eliminates redundant entries.
-  - `FIND_AND_REPLACE`: Locates and modifies text across cells.
-
-### **4. Data Entry and Validation**
-- Supports various data types like text, numbers, and dates.
-- Basic input validation for improved accuracy.
-
-### **5. Additional Features**
-- **Save/Load**: Local storage integration for saving and retrieving spreadsheets.
-- **Data Visualization**: Generate charts and graphs from spreadsheet data.
-- **Formula Support**: Advanced formulas with absolute and relative references.
+A chatbot designed to assist users with "how-to" questions about four popular Customer Data Platforms (CDPs): Segment, mParticle, Lytics, and Zeotap. The chatbot simplifies complex tasks by providing step-by-step guidance derived directly from official documentation, enabling users to achieve their goals efficiently.
 
 ---
 
-## **Tech Stack**
+## **Core Features**
 
-### **Frontend**
-- **React.js**: For creating a responsive and modular UI.
-- **Tailwind CSS**: For consistent and efficient styling.
+### **1. Task Guidance**
+- Answers user queries such as:
+  - *"How do I configure a webhook in Segment?"*  
+  - *"How do I create an event stream in mParticle?"*  
+- Provides clear, actionable steps to perform tasks.
 
-### **Backend** (Optional)
-- **Node.js + Express**: For managing data storage and server operations.
-- **SQLite/PostgreSQL**: To persist data for advanced features.
+### **2. Dynamic Documentation Reference**
+- Retrieves and indexes relevant sections from official documentation.
+- Quickly navigates complex resources to locate precise information.
 
-### **Libraries**
-- **React-DnD**: Implements drag-and-drop.
-- **Chart.js/D3.js**: For graphical data representation.
-- **Jest & Cypress**: Ensures reliable testing and bug-free deployment.
+### **3. Intelligent Query Understanding**
+- Interprets different phrasings and variations of questions.
+- Handles ambiguous or irrelevant queries gracefully.
 
----
-
-## **Core Implementation**
-
-### **Data Structures**
-1. **Grid**: A 2D array to store cell content and attributes.
-2. **Dependency Tracker**: Adjacency list for tracking formula-based relationships.
-3. **Formula Parser**: Converts expressions into an Abstract Syntax Tree (AST) for evaluation.
+### **4. Advanced Functionalities**
+- **Cross-Platform Comparisons**: Explains distinctions and similarities between Segment, mParticle, Lytics, and Zeotap functionalities.
+- **Expert Guidance**: Handles advanced scenarios like integration setups and workflow configurations.
 
 ---
 
-## **Setup and Installation**
+## **Technology Stack**
 
-### **Prerequisites**
-- Node.js installed on the system.
+### **Backend**
+- **Python**: Core programming language.
+- **Flask**: Framework for developing the chatbot server.
 
-### **Steps**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/spreadsheet-web-app.git
-   ```
-2. Navigate to the directory:
-   ```bash
-   cd spreadsheet-web-app
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Launch the development server:
-   ```bash
-   npm start
-   ```
-5. Access the app in your browser at `http://localhost:3000`.
+### **Natural Language Processing**
+- **spaCy**: Text parsing and query interpretation.
+- **LangChain**: For chaining NLP tasks.
+- **FAISS/Whoosh**: Efficient indexing and search.
+
+### **Frontend (Optional)**
+- **HTML/CSS**: For web-based interaction.
+- **JavaScript**: Enhancing interactivity.
+
+### **Additional Tools**
+- **BeautifulSoup**: For scraping documentation.
+- **Requests**: For HTTP interactions.
 
 ---
 
-## **Usage**
+## **Setup and Deployment**
 
-1. **Enter and Edit Data**: Select cells to input values or text.
-2. **Apply Formulas**: Use the formula bar for expressions like `=SUM(A1:A5)`.
-3. **Format**: Adjust cell styles via toolbar options.
-4. **Row/Column Operations**: Easily modify the spreadsheet structure.
-5. **Data Quality**: Test functions like `UPPER` or `REMOVE_DUPLICATES`.
+### **1. Repository Setup**
+```bash
+git clone https://github.com/yourusername/cdp-support-chatbot.git
+cd cdp-support-chatbot
+```
 
----
-
-## **Testing and Debugging**
-- Execute unit tests:
+### **2. Environment Setup**
+- Create a virtual environment:
   ```bash
-  npm test
+  python -m venv venv
+  source venv/bin/activate  # Windows: venv\Scripts\activate
   ```
-- Run end-to-end tests:
+- Install dependencies:
   ```bash
-  npx cypress open
+  pip install -r requirements.txt
   ```
 
+### **3. Documentation Indexing**
+Preprocess and index documentation:
+```bash
+python preprocess_docs.py
+```
+
+### **4. Launch the Chatbot**
+Start the server:
+```bash
+python app.py
+```
+Access the chatbot at: `http://localhost:5000`.
+
 ---
 
-## **Future Enhancements**
-- Cloud-based file saving and sharing.
-- Real-time collaboration for multiple users.
-- Advanced charting tools and interactive graphs.
-- Enhanced formula support, including nested and custom functions.
+## **How to Use**
+1. **Launch the Application**: Run locally or deploy to a cloud platform (e.g., AWS, Heroku).
+2. **Interact with the Chatbot**:
+   - Use the web interface or API.
+   - Example query: *"How do I integrate Lytics with a CRM system?"*
+
+### **API Sample Request**
+```json
+POST /chat
+{
+  "query": "How to set up a destination in Segment?"
+}
+```
 
 ---
 
-## **Acknowledgments**
-Inspired by Google Sheets, this project demonstrates the integration of frontend and backend technologies to build feature-rich web applications with real-world relevance.
+## **Evaluation Metrics**
+- **Accuracy**: Delivers precise steps for tasks.  
+- **Robustness**: Handles invalid or vague queries effectively.  
+- **Comparative Support**: Enables cross-platform functionality insights.  
+- **Extensibility**: Easily adds support for new platforms.
+
+---
+
+## **Planned Improvements**
+- **Automatic Updates**: Periodic syncing with updated CDP documentation.  
+- **User Personalization**: Store user preferences for a customized experience.  
+- **Multi-language Queries**: Support for non-English queries.
+
+---
+
+## **License**
+This project is licensed under the [MIT License](LICENSE).
